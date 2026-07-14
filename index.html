@@ -474,7 +474,56 @@ border-radius:15px;
 </div>
 </section>
 
+<section id="typing">
+<h2>I am a</h2>
+<h1><span id="text"></span></h1>
+</section>
 
+<style>
+#typing{
+padding:60px 20px;
+text-align:center;
+}
+
+#text{
+font-size:32px;
+font-weight:bold;
+color:#00e5ff;
+border-right:3px solid white;
+padding-right:5px;
+}
+</style>
+
+<script>
+const words=[
+"Mechanical Engineer",
+"Web Developer",
+"HTML & CSS Learner"
+];
+
+let i=0,j=0,current="",isDeleting=false;
+
+function type(){
+current=words[i];
+
+if(!isDeleting){
+document.getElementById("text").textContent=current.substring(0,j++);
+if(j>current.length){
+isDeleting=true;
+setTimeout(type,1000);
+return;
+}
+}else{
+document.getElementById("text").textContent=current.substring(0,j--);
+if(j<0){
+isDeleting=false;
+i=(i+1)%words.length;
+}
+}
+setTimeout(type,isDeleting?60:120);
+}
+type();
+</script>
 
 
 
