@@ -501,29 +501,7 @@ const words=[
 "HTML & CSS Learner"
 ];
 
-let i=0,j=0,current="",isDeleting=false;
 
-function type(){
-current=words[i];
-
-if(!isDeleting){
-document.getElementById("text").textContent=current.substring(0,j++);
-if(j>current.length){
-isDeleting=true;
-setTimeout(type,1000);
-return;
-}
-}else{
-document.getElementById("text").textContent=current.substring(0,j--);
-if(j<0){
-isDeleting=false;
-i=(i+1)%words.length;
-}
-}
-setTimeout(type,isDeleting?60:120);
-}
-type();
-</script>
 
 
 
